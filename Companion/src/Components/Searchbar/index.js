@@ -24,6 +24,10 @@ function Searchbar() {
    
   });
 
+  // potential playlists to be exported to Playlist component. Can be extracted from response.data.items[0].id.playlistId instead of videoID
+  // or simply contain all video id and playlist ID and play
+  const playLists= []
+
    
 
 // embedded player options
@@ -33,6 +37,10 @@ function Searchbar() {
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 0,
+      loop:0,
+      listType:'playlist',
+      list:videoID
+      
     },
   };
 
@@ -55,14 +63,15 @@ function Searchbar() {
         part:'snippet',
         q: searchParam.keyword,
         maxResults: 5,
+        type:"playlist",
         key: apiKey
     }
   })
     .then(function (response) {
       // handle success
      
-      setVideo(response.data.items[0].id.videoId)
-  
+      setVideo(response.data.items[0].id.playlistId)
+      console.log(response)
     
     })
     .catch(function (error) {
@@ -102,7 +111,7 @@ function Searchbar() {
 
     
    
-    <YouTube videoId={videoID} opts={opts}  />
+    <YouTube  opts={opts}  />
     
     </div>
   );
