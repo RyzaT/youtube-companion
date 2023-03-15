@@ -5,13 +5,26 @@ import YouTube from 'react-youtube';
 // nmp package for getting data
 import axios from 'axios';
 
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup'
+
 import {apiKey} from '../../API/apiKey'
 import "./style.css";
 
 function Searchbar() {
   
 // manage video id from GET request
-  const [videoID, setCount] = useState("");
+  const [videoID, setVideo] = useState("");
+
+
+  // control inout value
+  const [searchParam, setSearch] = useState({
+    keyword: "",
+   
+  });
+
+   
 
 // embedded player options
   const opts = {
@@ -23,20 +36,33 @@ function Searchbar() {
     },
   };
 
-  
+  // submit form input event
+  const handleSubmit = (e) => {
+    // prevents the submit button from refreshing the page
+    e.preventDefault();
+   
+  };
+
    
   // button click event
   function handleClick() {
-    alert('You clicked me!');
+   
 
-    const apiCallString ="https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=doom&key="+apiKey
-  
-    axios.get(apiCallString)
+  //  const apiCallString ="https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=doom&key="+apiKey
+  const apiCallString ='https://youtube.googleapis.com/youtube/v3/search'
+    axios.get(apiCallString, {
+      params: {
+        part:'snippet',
+        q: searchParam.keyword,
+        maxResults: 5,
+        key: apiKey
+    }
+  })
     .then(function (response) {
       // handle success
-      //console.log(response);
-     setCount(response.data.items[0].id.videoId)
-     // enot=response.data.items[0].id.videoId
+     
+      setVideo(response.data.items[0].id.videoId)
+  
     
     })
     .catch(function (error) {
@@ -57,9 +83,25 @@ function Searchbar() {
   
   
   return (
-    <div><p>Search </p>
-    <p>{apiKey} </p>
-    <button onClick={handleClick}> Search </button>
+    <div>
+
+<InputGroup className="mb-3">
+        <Form.Control
+          
+          placeholder="type topic"
+          aria-label="type topic"
+          aria-describedby="basic-addon2"
+          onSubmit={handleSubmit}
+          onChange={(e) => setSearch({...searchParam, keyword: e.target.value})}
+          
+        />
+        <Button  onClick={handleClick} variant="outline-secondary" id="button-addon2">
+          Button
+        </Button>
+      </InputGroup>
+
+    
+   
     <YouTube videoId={videoID} opts={opts}  />
     
     </div>
