@@ -5,6 +5,8 @@ import YouTube from 'react-youtube';
 // nmp package for getting data
 import axios from 'axios';
 
+import ListCard from '../Card_Playlist'
+
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup'
@@ -12,27 +14,42 @@ import InputGroup from 'react-bootstrap/InputGroup'
 import {apiKey} from '../../API/apiKey'
 import "./style.css";
 
+
+ // potential playlists to be exported to Playlist component. Can be extracted from response.data.items[0].id.playlistId instead of videoID
+  // or simply contain all video id and playlist ID and play
+  let playLists= []
+
+  
+
+
 function Searchbar() {
   
 // manage video id from GET request
   const [videoID, setVideo] = useState("");
 
 
-  // control inout value
+  // control input value
   const [searchParam, setSearch] = useState({
     keyword: "",
    
   });
 
+ 
+ 
+  
    
 
 // embedded player options
   const opts = {
-    height: '390',
-    width: '640',
+    height: '240',
+    width: '240',
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 0,
+      loop:0,
+      listType:'playlist',
+      list:videoID
+      
     },
   };
 
@@ -40,6 +57,7 @@ function Searchbar() {
   const handleSubmit = (e) => {
     // prevents the submit button from refreshing the page
     e.preventDefault();
+   // playLists= [];
    
   };
 
@@ -55,15 +73,25 @@ function Searchbar() {
         part:'snippet',
         q: searchParam.keyword,
         maxResults: 5,
+        type:"playlist",
         key: apiKey
     }
   })
     .then(function (response) {
       // handle success
-     
-      setVideo(response.data.items[0].id.videoId)
+      console.log(response)
+      setVideo(response.data.items[0].id.playlistId)
+
+      playLists=[]
+      for (let i=0;i<response.data.items.length;i++){
+
+       playLists.push(response.data.items[i].id.playlistId)
+        
+      }
+      alert(playLists.length )
+          
+     // console.log(playLists)
   
-    
     })
     .catch(function (error) {
       // handle error
@@ -79,7 +107,10 @@ function Searchbar() {
   
   
   
-  
+  const listItems = playLists.map((number) =>
+  <ListCard listID={number}></ListCard> 
+
+);
   
   
   return (
@@ -101,11 +132,27 @@ function Searchbar() {
       </InputGroup>
 
     
+  
+    <YouTube  opts={opts}  />
+
    
-    <YouTube videoId={videoID} opts={opts}  />
-    
+     <div >
+<p>{playLists.length}</p>
+{listItems}
+ 
+     </div>
+   
+
     </div>
   );
 }
 
+
+
+
+
+
+
+
 export default Searchbar;
+//export {playLists}

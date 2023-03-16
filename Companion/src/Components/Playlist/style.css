@@ -1,14 +1,12 @@
-.footer {
-  min-height: 100px;
-  background: #e5e5e5;
-  position: relative;
+.wrapper {
+  padding-top: 50px;
+  background: #ECEFF1;
+  height: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  padding: 20px;
+  justify-content: space-around;
+  align-content: flex-start;
+  overflow: auto;
 }
 
-.footer span {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 3px;
-  background: #b8b8b8;
-}
