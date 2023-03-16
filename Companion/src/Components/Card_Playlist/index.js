@@ -1,5 +1,6 @@
 import React from "react";
 import YouTube from 'react-youtube';
+import { useState } from 'react';
 import Searchbar from "../Searchbar";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -26,6 +27,41 @@ const opts = {
 };
 
 
+function HandleClick () {
+
+// new array for values from a local storage
+let taskSaved = [];
+taskSaved = getTasks(taskSaved);
+console.log(taskSaved)
+
+// retrieve saved values from local storage if any exists
+function getTasks(arr) {
+  if (localStorage.getItem("taskObject") === null) {
+    arr = [];
+  } else {
+    arr = JSON.parse(localStorage.getItem("taskObject"));
+  }
+  return arr;
+}
+
+// get updated list of tasks from storage 
+let taskObject = getTasks(taskSaved);
+let userSave = {
+
+  profile: "default",
+  savedList:props.listID
+
+}
+// add new value to array
+taskObject.push(userSave);
+// save to local storage
+localStorage.setItem("taskObject", JSON.stringify(taskObject));
+// add this city to search history
+taskSaved = taskObject;
+
+
+
+}
 
 
 
@@ -41,7 +77,7 @@ const opts = {
         
         {props.listID}
         </Card.Text>
-        <Button variant="primary">Save</Button>
+        <Button  onClick={HandleClick} variant="primary">Save</Button>
       </Card.Body>
     </Card>
   );
