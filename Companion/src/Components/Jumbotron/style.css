@@ -41,7 +41,7 @@ h1:hover span {
   text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 40px #ff0000;
 }
 
-.footer {
+/* .footer {
   min-height: 100px;
   background: #e5e5e5;
   position: relative;
@@ -54,4 +54,4 @@ h1:hover span {
   right: 0;
   padding: 3px;
   background: #b8b8b8;
-}
+} */
