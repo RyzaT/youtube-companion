@@ -33,15 +33,15 @@ const opts = {
   return (
   
     <Card style={{ width: '18rem' }}>
-      <Card.Title>Play list</Card.Title>
+      <Card.Title>Playlist</Card.Title>
        <YouTube  opts={opts}  />
       <Card.Body>
         
         <Card.Text>
-          <p>List ID</p>
+        
         {props.listID}
         </Card.Text>
-        <Button variant="primary">Could be save to current profile</Button>
+        <Button variant="primary">Save</Button>
       </Card.Body>
     </Card>
   );
