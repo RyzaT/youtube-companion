@@ -1,6 +1,8 @@
+ /* Adds slow change of background color on body of page */
+
 body {
   background-color: #fff;
-  transition: background-color 1s linear;
+  transition: background-color 5s linear;
 }
 .loaded { background-color: #dec0c0;}
 
