@@ -14,15 +14,14 @@
 }
 .card {
   display: inline-flex;
-  min-height: 50%;
   flex-wrap: nowrap;
-  justify-content: center ;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  justify-content: space-evenly;
   width: 50%;
-  margin: 5px auto;
+  margin: 5px 10px;
+  height: 300pxx;
   border-style: 5px auto;
 }
+
 
 @media (min-width: 100px) {
   .card {
