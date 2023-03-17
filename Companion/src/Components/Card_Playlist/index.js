@@ -56,7 +56,7 @@ let userSave = {
 taskObject.push(userSave);
 // save to local storage
 localStorage.setItem("taskObject", JSON.stringify(taskObject));
-// add this city to search history
+
 taskSaved = taskObject;
 
 

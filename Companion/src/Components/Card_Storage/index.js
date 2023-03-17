@@ -8,9 +8,12 @@ import "./style.css";
 
 
 
-
+let playLists =[]
 function ListCardStorage(props) {
 
+
+  const [friends, setFriends] = useState(playLists); 
+// required to control array update event and accordingly render playlists
 
 // embedded player options
 const opts = {
@@ -27,11 +30,33 @@ const opts = {
 };
 
 
+
+function getTasks(arr) {
+  if (localStorage.getItem("taskObject") === null) {
+    arr = [];
+  } else {
+    arr = JSON.parse(localStorage.getItem("taskObject"));
+  }
+  return arr;
+}
+
+
 function removeItem () {
-
-alert("write function to remove this list ID from local storage")
-
-
+  // new array for values from a local storage
+  let taskSaved = [];
+  taskSaved = getTasks(taskSaved);
+ // playLists=JSON.stringify(taskSaved)
+ //alert(taskSaved[0].profile)
+  for(let i=0; i < taskSaved.length; i++) {
+   // alert(i)
+   // alert(taskSaved[i].profile)
+    if(taskSaved[i].profile == "default" && taskSaved[i].savedList == props.listID)
+    {
+      taskSaved.splice(i,1);
+      
+    }
+ }
+ localStorage.setItem("taskObject", JSON.stringify(taskSaved));
 
 }
 
