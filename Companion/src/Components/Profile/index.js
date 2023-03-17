@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from 'react';
 import ListCardStorage from '../Card_Storage'
-import profiles from '../../Profiles/Profile.json'
+import { FaUpload } from 'react-icons/fa';
 import "./style.css";
 
 
@@ -63,7 +63,8 @@ function Profile() {
 
   return (
     <div>
-      <p>Display saved items below</p>
+      <p>Display saved items below <span><button onClick={getData} className="viewsavedButton"><FaUpload /></button></span></p> 
+      
       <ul className="list-group list-group-flush">
 
       </ul>
@@ -71,9 +72,7 @@ function Profile() {
         {listItems1}
       </div>
 
-      <div>
-        <button onClick={getData}>Show Saved</button>
-      </div>
+      
      
 
     </div>

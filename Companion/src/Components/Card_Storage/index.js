@@ -65,8 +65,8 @@ const removeItem = () => {
 
   return (
   
-    <Card style={{ width: '18rem',visibility: clicked ? "visible" : "hidden" } }>
-      <Card.Title>Playlist</Card.Title>
+    <Card className="cardPlaylist" style={{ width: '18rem',visibility: clicked ? "visible" : "hidden" } }>
+      <Card.Title>Saved List</Card.Title>
        <YouTube  opts={opts}  />
       <Card.Body>
         

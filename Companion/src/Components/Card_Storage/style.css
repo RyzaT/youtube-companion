@@ -30,3 +30,10 @@
     width: 1100px;
   }
 }
+
+.cardPlaylist{
+  background-color: transparent;
+  opacity: 85%;
+  border-width: 0;
+  
+  }
