@@ -1,60 +1,78 @@
 import React from "react";
 import { useState } from 'react';
-import ListCard from '../Card_Playlist'
+import ListCardStorage from '../Card_Storage'
 import profiles from '../../Profiles/Profile.json'
 import "./style.css";
 
 
-let playLists =[]
+
+
+
+let playLists = []
+
+
 
 function Profile() {
 
-// required to control array update event and accordingly render playlists
-  const [returnedLists, setFriends] = useState(playLists);
+  // required to control array update event and accordingly render playlists
+  const [returnedLists, setLists] = useState([]);
 
-// generate buttons for each profile read from JSON
-const listItems = profiles.map((d) => <button onClick={() => showlists(d.title)} key={d.title}>{d.title}  </button>);
-
-// returns title of each profile stored as button text
-  function showlists(value){
-  
-    function specificList(profile) {
-      return profile.title === value;
- 
+  function getTasks(arr) {
+    if (localStorage.getItem("taskObject") === null) {
+      arr = [];
+    } else {
+      arr = JSON.parse(localStorage.getItem("taskObject"));
+    }
+    return arr;
   }
 
-// searches for associated playlists based on button
- let  searchedValue = profiles.find(specificList)
- playLists=searchedValue.links.lists
+  function getData() {
+    // new array for values from a local storage
+    let taskSaved = [];
+    taskSaved = getTasks(taskSaved);
+
+    // update array of values to render lists
+    if (taskSaved.length > 0) {
+      for (let i = 0; i < taskSaved.length; i++) {
+        playLists.push(taskSaved[i].savedList)
+        setLists([...returnedLists, taskSaved[i].savedList]);
+      }
+    }
+    else {
+      alert("No saved playlists")
+    }
+    
+  }
 
 
- // updates array one by one from each found playlist
- searchedValue.links.lists.map(displayItem)
-  function displayItem(){
-   
-    setFriends([...returnedLists, searchedValue.links.lists]);
-   
-  } 
 
-}
 
-// generates JSX 
-const listItems1 = playLists.map((number) =>
-<ListCard listID={number}></ListCard> 
-);
-  
+
+
+
+
+
+
+  // generates JSX 
+  const listItems1 = playLists.map((number) =>
+    <ListCardStorage listID={number}></ListCardStorage>);
+
   return (
     <div>
-      <p>Profiles from JSON (alternative to local storage)</p>
-    <ul className="list-group list-group-flush">
-          {listItems}
-        </ul>
-        <div>
-          <p>saved lists go here</p>
+      <p>Display saved items below</p>
+      <ul className="list-group list-group-flush">
+
+      </ul>
+      <div>
         {listItems1}
-        </div>
-      
-        </div>
+      </div>
+
+      <div>
+        <button onClick={getData}>Show Saved</button>
+      </div>
+     
+
+    </div>
   );
 }
 
