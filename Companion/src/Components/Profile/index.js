@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from 'react';
-import ListCard from '../Card_Playlist'
+import ListCardStorage from '../Card_Storage'
 import profiles from '../../Profiles/Profile.json'
 import "./style.css";
 
@@ -15,7 +15,7 @@ let playLists = []
 function Profile() {
 
   // required to control array update event and accordingly render playlists
-  const [returnedLists, setLists] = useState(playLists);
+  const [returnedLists, setLists] = useState([]);
 
   function getTasks(arr) {
     if (localStorage.getItem("taskObject") === null) {
@@ -25,11 +25,6 @@ function Profile() {
     }
     return arr;
   }
-
-
-
-
-
 
   function getData() {
     // new array for values from a local storage
@@ -43,13 +38,24 @@ function Profile() {
         setLists([...returnedLists, taskSaved[i].savedList]);
       }
     }
+    else {
+      alert("No saved playlists")
+    }
+    
   }
+
+
+
+
+
+
+
 
 
 
   // generates JSX 
   const listItems1 = playLists.map((number) =>
-    <ListCard listID={number}></ListCard>);
+    <ListCardStorage listID={number}></ListCardStorage>);
 
   return (
     <div>
@@ -64,6 +70,7 @@ function Profile() {
       <div>
         <button onClick={getData}>Show Saved</button>
       </div>
+     
 
     </div>
   );

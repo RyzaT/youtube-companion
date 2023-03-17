@@ -27,7 +27,7 @@ const opts = {
 };
 
 
-function HandleClick () {
+function savePlaylist () {
 
 // new array for values from a local storage
 let taskSaved = [];
@@ -63,9 +63,6 @@ taskSaved = taskObject;
 
 }
 
-
-
-
   return (
   
     <Card style={{ width: '18rem' }}>
@@ -75,9 +72,9 @@ taskSaved = taskObject;
         
         <Card.Text>
         
-        {props.listID}
         </Card.Text>
-        <Button  onClick={HandleClick} variant="primary">Save</Button>
+        <Button  onClick={savePlaylist} variant="primary"  >Save</Button>
+        
       </Card.Body>
     </Card>
   );

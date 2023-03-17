@@ -1,0 +1,32 @@
+.footer {
+  min-height: 100px;
+  background: #e5e5e5;
+  position: relative;
+}
+
+.footer span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 3px;
+  background: #b8b8b8;
+}
+.card {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  width: 50%;
+  margin: 5px 10px;
+  height: 300pxx;
+  border-style: 5px auto;
+}
+
+
+@media (min-width: 100px) {
+  .card {
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 1100px;
+  }
+}

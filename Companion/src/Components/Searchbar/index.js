@@ -88,7 +88,7 @@ function Searchbar() {
        playLists.push(response.data.items[i].id.playlistId)
         
       }
-      alert(playLists.length )
+      
           
      // console.log(playLists)
   
@@ -137,7 +137,7 @@ function Searchbar() {
 
    
      <div >
-<p>{playLists.length}</p>
+
 {listItems}
  
      </div>
