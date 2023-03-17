@@ -5,6 +5,8 @@ import YouTube from 'react-youtube';
 // nmp package for getting data
 import axios from 'axios';
 
+import { FaSearch } from 'react-icons/fa';
+
 import ListCard from '../Card_Playlist'
 
 import Button from 'react-bootstrap/Button';
@@ -41,7 +43,7 @@ function Searchbar() {
 
 // embedded player options
   const opts = {
-    height: '240',
+    height: '2',
     width: '240',
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
@@ -79,7 +81,7 @@ function Searchbar() {
   })
     .then(function (response) {
       // handle success
-      console.log(response)
+     // console.log(response)
       setVideo(response.data.items[0].id.playlistId)
 
       playLists=[]
@@ -114,26 +116,26 @@ function Searchbar() {
   
   
   return (
-    <div>
-
-<InputGroup className="mb-3">
+    <div className="row">
+<div className="mx-auto col-10 col-md-8 col-lg-6">
+<InputGroup className="mb-3 input-style">
         <Form.Control
           
-          placeholder="type topic"
+          placeholder="type keywords"
           aria-label="type topic"
           aria-describedby="basic-addon2"
           onSubmit={handleSubmit}
           onChange={(e) => setSearch({...searchParam, keyword: e.target.value})}
           
         />
-        <Button  onClick={handleClick} variant="outline-secondary" id="button-addon2">
-          Button
+        <Button  onClick={handleClick} variant="outline-secondary"  className="searchButton">
+        <FaSearch />
         </Button>
       </InputGroup>
 
-    
+      </div>
   
-    <YouTube  opts={opts}  />
+    <YouTube  opts={opts} style={{visibility:"hidden"}} />
 
    
      <div >

@@ -12,69 +12,65 @@ import "./style.css";
 function ListCard(props) {
 
 
-// embedded player options
-const opts = {
-  height: '180',
-  width: '180',
-  playerVars: {
-    // https://developers.google.com/youtube/player_parameters
-    autoplay: 0,
-    loop:0,
-    listType:'playlist',
-    list:props.listID
-    
-  },
-};
+  // embedded player options
+  const opts = {
+    height: '180',
+    width: '180',
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 0,
+      loop: 0,
+      listType: 'playlist',
+      list: props.listID
+
+    },
+  };
 
 
-function savePlaylist () {
+  function savePlaylist() {
 
-// new array for values from a local storage
-let taskSaved = [];
-taskSaved = getTasks(taskSaved);
-console.log(taskSaved)
+    // new array for values from a local storage
+    let taskSaved = [];
+    taskSaved = getTasks(taskSaved);
+    console.log(taskSaved)
 
-// retrieve saved values from local storage if any exists
-function getTasks(arr) {
-  if (localStorage.getItem("taskObject") === null) {
-    arr = [];
-  } else {
-    arr = JSON.parse(localStorage.getItem("taskObject"));
+    // retrieve saved values from local storage if any exists
+    function getTasks(arr) {
+      if (localStorage.getItem("taskObject") === null) {
+        arr = [];
+      } else {
+        arr = JSON.parse(localStorage.getItem("taskObject"));
+      }
+      return arr;
+    }
+
+    // get updated list of tasks from storage 
+    let taskObject = getTasks(taskSaved);
+    let userSave = {
+
+      profile: "default",
+      savedList: props.listID
+
+    }
+    // add new value to array
+    taskObject.push(userSave);
+    // save to local storage
+    localStorage.setItem("taskObject", JSON.stringify(taskObject));
+
+    taskSaved = taskObject;
+
+
+
   }
-  return arr;
-}
-
-// get updated list of tasks from storage 
-let taskObject = getTasks(taskSaved);
-let userSave = {
-
-  profile: "default",
-  savedList:props.listID
-
-}
-// add new value to array
-taskObject.push(userSave);
-// save to local storage
-localStorage.setItem("taskObject", JSON.stringify(taskObject));
-
-taskSaved = taskObject;
-
-
-
-}
 
   return (
-  
-    <Card style={{ width: '18rem' }}>
-      <Card.Title>Playlist</Card.Title>
-       <YouTube  opts={opts}  />
-      <Card.Body>
-        
-        <Card.Text>
-        
-        </Card.Text>
-        <Button  onClick={savePlaylist} variant="primary"  >Save</Button>
-        
+
+    <Card className="cardPlaylist" style={{ width: '18rem' }}>
+    
+     
+      <Card.Body >
+      <YouTube opts={opts} />
+        <Button onClick={savePlaylist} variant="primary"  >Save</Button>
       </Card.Body>
     </Card>
   );
