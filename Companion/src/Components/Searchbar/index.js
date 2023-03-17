@@ -128,7 +128,7 @@ function Searchbar() {
           onChange={(e) => setSearch({...searchParam, keyword: e.target.value})}
           
         />
-        <Button  onClick={handleClick} variant="outline-secondary" id="button-addon2">
+        <Button  onClick={handleClick} variant="outline-secondary"  className="searchButton">
         <FaSearch />
         </Button>
       </InputGroup>
