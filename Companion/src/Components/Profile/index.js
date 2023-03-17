@@ -14,6 +14,10 @@ let playLists = []
 
 function Profile() {
 
+/* if(playLists.length>0){
+  playLists.length=0
+} */
+
   // required to control array update event and accordingly render playlists
   const [returnedLists, setLists] = useState([]);
 
@@ -30,7 +34,7 @@ function Profile() {
     // new array for values from a local storage
     let taskSaved = [];
     taskSaved = getTasks(taskSaved);
-
+    playLists=[]
     // update array of values to render lists
     if (taskSaved.length > 0) {
       for (let i = 0; i < taskSaved.length; i++) {
