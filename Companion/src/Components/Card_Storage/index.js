@@ -8,11 +8,12 @@ import "./style.css";
 
 
 
-let playLists =[]
+//let playLists =[]
 function ListCardStorage(props) {
 
-
-  const [friends, setFriends] = useState(playLists); 
+  // control visibility
+  const [clicked, setClicked] = useState(true);
+   
 // required to control array update event and accordingly render playlists
 
 // embedded player options
@@ -41,7 +42,9 @@ function getTasks(arr) {
 }
 
 
-function removeItem () {
+const removeItem = () => {
+
+  setClicked(false);
   // new array for values from a local storage
   let taskSaved = [];
   taskSaved = getTasks(taskSaved);
@@ -50,7 +53,7 @@ function removeItem () {
   for(let i=0; i < taskSaved.length; i++) {
    // alert(i)
    // alert(taskSaved[i].profile)
-    if(taskSaved[i].profile == "default" && taskSaved[i].savedList == props.listID)
+    if(taskSaved[i].profile === "default" && taskSaved[i].savedList === props.listID)
     {
       taskSaved.splice(i,1);
       
@@ -62,7 +65,7 @@ function removeItem () {
 
   return (
   
-    <Card style={{ width: '18rem' }}>
+    <Card style={{ width: '18rem',visibility: clicked ? "visible" : "hidden" } }>
       <Card.Title>Playlist</Card.Title>
        <YouTube  opts={opts}  />
       <Card.Body>
