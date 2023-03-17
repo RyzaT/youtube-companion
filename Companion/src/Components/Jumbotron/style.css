@@ -153,38 +153,38 @@ div {
 
 @-webkit-keyframes color-transition {
 	0% {
-		background-color: #9fd356;
+		background-color: #d68c45;
 		border-color: #9fd356;
 	}
 	33% {
-		background-color: #78a94d;
+		background-color: #4c956c;
 		border-color: #78a94d;
 	}
 	66% {
-		background-color: #649449;
+		background-color: #fefee3;
 		border-color: #649449;
 	}
 	100% {
-		background-color: #507f44;
+		background-color: #ffc9b9;
 		border-color: #507f44;
 	}
 }
 
 @keyframes color-transition {
 	0% {
-		background-color: #abb94c;
+		background-color: #d68c45;
 		border-color: #abb94c;
 	}
 	33% {
-		background-color: #9fd356;
+		background-color: #4c956c;
 		border-color: #9fd356;
 	}
 	66% {
-		background-color: #78a94d;
+		background-color: #fefee3;
 		border-color: #78a94d;
 	}
 	100% {
-		background-color: #649449;
+		background-color: #ffc9b9;
 		border-color: #649449;
 	}
 }
