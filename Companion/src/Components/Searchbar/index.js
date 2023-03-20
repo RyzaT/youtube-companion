@@ -114,11 +114,11 @@ function Searchbar() {
   
   
   return (
-    <div>
+    <div className="search-bar">
 
-<InputGroup className="mb-3">
+<InputGroup className="mb-3 myInputGroup">
         <Form.Control
-          
+          className="myFormControl"
           placeholder="type topic"
           aria-label="type topic"
           aria-describedby="basic-addon2"
@@ -126,7 +126,7 @@ function Searchbar() {
           onChange={(e) => setSearch({...searchParam, keyword: e.target.value})}
           
         />
-        <Button  onClick={handleClick} variant="outline-secondary" id="button-addon2">
+        <Button className="myButton"  onClick={handleClick} variant="outline-secondary" id="button-addon2">
           Button
         </Button>
       </InputGroup>
