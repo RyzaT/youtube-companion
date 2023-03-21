@@ -49,7 +49,7 @@ function Searchbar() {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 0,
       loop: 0,
-      // listType:'playlist',
+      listType:'playlist',
       list: videoID
 
     },
