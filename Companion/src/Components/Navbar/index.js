@@ -6,10 +6,10 @@ import Logo from '../Navbar/Logo.png'
 
 function Navbar() {
   return (
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light bg-light w-100">
       <div class="container-fluid mx-auto my-auto">
         <a class="navbar-brand mx-auto my-auto" href="#">
-          <img src={Logo} alt="" width="40" height="40" class="d-inline-block align-text-center"/>
+          <img src={Logo} alt="" width="50" height="40" class="d-inline-block align-text-center"/>
              Youtube Companion
         </a>
       </div>
