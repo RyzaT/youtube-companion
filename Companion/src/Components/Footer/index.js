@@ -5,7 +5,7 @@ import "./style.css";
 function Footer() {
   return (
     <footer className="footer">
-      <h4>Contact Us</h4>
+      <h4 className="contact-heading">Contact Us</h4>
       <div className="contact-container">
       <section>
         <h4><FaGithub/>Github</h4>
