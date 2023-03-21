@@ -97,9 +97,8 @@ button {
 	border-radius: 5px;
 	color: #fff;
 	margin: 5px 20px;
-	/*NOTE: You can include all these using the shorthand 'animation' property, but some older  browsers require that all the values be in their own property. Additionally, I feel its easier to learn/demonstrate this way*/
 	-webkit-animation-name: color-transition;
-	animation-name: color-transition;
+	animation-name: button-transition;
 	-webkit-animation-duration: 25s;
 	animation-duration: 25s;
 	-webkit-animation-direction: alternate;
@@ -149,7 +148,7 @@ div {
 } */
 
 
-/*This is the animation used to change colors; In this instance, I made sure to have the same color at 0% as I did at 100% */
+/*This is the animation used to change colors */
 
 @-webkit-keyframes color-transition {
 	0% {
@@ -186,6 +185,42 @@ div {
 	100% {
 		background-color: #ffc9b9;
 		border-color: #649449;
+	}
+}
+@-webkit-keyframes button-transition {
+	0% {
+		background-color: #41658a;
+		border-color: #9fd356;
+	}
+	33% {
+		background-color: #4c956c;
+		border-color: #78a94d;
+	}
+	66% {
+		background-color: #2c0735;
+		border-color: #649449;
+	}
+	100% {
+		background-color: #0b3948;
+		border-color: #507f44;
+	}
+}
+@keyframes button-transition {
+	0% {
+		background-color: #41658a;
+		border-color: #9fd356;
+	}
+	33% {
+		background-color: #4c956c;
+		border-color: #78a94d;
+	}
+	66% {
+		background-color: #2c0735;
+		border-color: #649449;
+	}
+	100% {
+		background-color: #0b3948;
+		border-color: #507f44;
 	}
 }
 
