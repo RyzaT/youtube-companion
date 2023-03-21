@@ -4,37 +4,29 @@ import { useState } from 'react';
 import Searchbar from "../Searchbar";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Modal } from 'react-bootstrap';
 import "./style.css";
 
-
-
-
 function ListCard(props) {
-
-
-  // embedded player options
   const opts = {
     height: '180',
     width: '180',
     playerVars: {
-      // https://developers.google.com/youtube/player_parameters
       autoplay: 0,
       loop: 0,
       listType: 'playlist',
       list: props.listID
-
     },
   };
 
+  const [showModal, setShowModal] = useState(false);
 
-  function savePlaylist() {
-
-    // new array for values from a local storage
+  const savePlaylist = () => {
+    setShowModal(true);
     let taskSaved = [];
     taskSaved = getTasks(taskSaved);
     console.log(taskSaved)
 
-    // retrieve saved values from local storage if any exists
     function getTasks(arr) {
       if (localStorage.getItem("taskObject") === null) {
         arr = [];
@@ -44,35 +36,31 @@ function ListCard(props) {
       return arr;
     }
 
-    // get updated list of tasks from storage 
     let taskObject = getTasks(taskSaved);
     let userSave = {
-
       profile: "default",
       savedList: props.listID
-
     }
-    // add new value to array
     taskObject.push(userSave);
-    // save to local storage
     localStorage.setItem("taskObject", JSON.stringify(taskObject));
-
     taskSaved = taskObject;
-
-
-
+    setTimeout(() => {
+      setShowModal(false);
+    }, 1000);
   }
 
   return (
-
-    <Card className="cardPlaylist" style={{ width: '18rem' }}>
-    
-     
-      <Card.Body >
-      <YouTube opts={opts} />
-        <Button onClick={savePlaylist} variant="primary"  >Save</Button>
-      </Card.Body>
-    </Card>
+    <div>
+      <Card className="cardPlaylist" style={{ width: '18rem' }}>
+        <Card.Body >
+          <YouTube opts={opts} />
+          <Button onClick={savePlaylist} variant="primary"  >Save</Button>
+        </Card.Body>
+      </Card>
+      <Modal show={showModal} onHide={() => setShowModal(false)}>
+        <Modal.Body style={{color: "black"}}>Song saved</Modal.Body>
+      </Modal>
+    </div>
   );
 }
 
