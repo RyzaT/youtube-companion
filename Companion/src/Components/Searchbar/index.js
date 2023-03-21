@@ -6,6 +6,7 @@ import YouTube from 'react-youtube';
 import axios from 'axios';
 
 import { FaSearch } from 'react-icons/fa';
+import {GiPerspectiveDiceSixFacesRandom} from 'react-icons/gi'
 
 import ListCard from '../Card_Playlist'
 
@@ -27,7 +28,7 @@ import "./style.css";
 function Searchbar() {
   
 // manage video id from GET request
-  const [videoID, setVideo] = useState("");
+  const[videoID, setVideo] = useState("");
 
 
   // control input value
@@ -35,21 +36,17 @@ function Searchbar() {
     keyword: "",
    
   });
-
- 
- 
-  
    
 
 // embedded player options
   const opts = {
-    height: '2',
+    height: '240',
     width: '240',
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 0,
       loop:0,
-      listType:'playlist',
+     // listType:'playlist',
       list:videoID
       
     },
@@ -59,16 +56,16 @@ function Searchbar() {
   const handleSubmit = (e) => {
     // prevents the submit button from refreshing the page
     e.preventDefault();
-   // playLists= [];
+  
    
   };
 
    
   // button click event
-  function handleClick() {
+  function getUserDefinedVideo() {
    
 
-  //  const apiCallString ="https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=doom&key="+apiKey
+   // first get request for a user defined playlist
   const apiCallString ='https://youtube.googleapis.com/youtube/v3/search'
     axios.get(apiCallString, {
       params: {
@@ -107,6 +104,59 @@ function Searchbar() {
 
   }
   
+
+
+
+// second get request for a random popular playlist
+  function getRandomVideo() {
+   
+const maxVideosCount =5
+   
+    const apiCallString ='https://youtube.googleapis.com/youtube/v3/search'
+      axios.get(apiCallString, {
+        params: {
+          q:'music',
+          part:'snippet',
+          type:"playlist",
+          key: apiKey,
+         order:'Viewcount',
+         maxResults:maxVideosCount
+         
+
+      }
+    })
+      .then(function (response) {
+        // handle success
+     //   console.log(response)
+
+   let randomVideoID =   Math.floor(Math.random() * maxVideosCount)-1
+   setVideo(response.data.items[randomVideoID].id.playlistId)
+       
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+      
+  
+  
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   
   const listItems = playLists.map((number) =>
@@ -128,14 +178,15 @@ function Searchbar() {
           onChange={(e) => setSearch({...searchParam, keyword: e.target.value})}
           
         />
-        <Button  onClick={handleClick} variant="outline-secondary"  className="searchButton">
+        <Button  onClick={getUserDefinedVideo} variant="outline-secondary"  className="searchButton">
         <FaSearch />
         </Button>
+        <Button onClick={getRandomVideo}>Get Trending List<GiPerspectiveDiceSixFacesRandom></GiPerspectiveDiceSixFacesRandom></Button>
       </InputGroup>
 
       </div>
   
-    <YouTube  opts={opts} style={{visibility:"hidden"}} />
+    <YouTube  opts={opts} style={{visibility:"visible"}} />
 
    
      <div >
