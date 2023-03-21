@@ -9,9 +9,9 @@ function WelcomeModal() {
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Welcome to Your Youtube Companion</Modal.Title>
+        <Modal.Title style={{ color: 'black' }} >Welcome to Your Youtube Companion</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
+      <Modal.Body style={{ color: 'black' }} >
         <p>In order to create a playlist, please follow these steps:</p>
         <ol>
               <li>Create a playlist profile, eg. Gym, Coding, Meditation...</li>
@@ -19,7 +19,7 @@ function WelcomeModal() {
               <li>When playlist is created, you can click the save button under a song to save for later use.</li>
             </ol>
       </Modal.Body>
-      <Modal.Footer style={{ textAlign: 'left' }}>
+      <Modal.Footer style={{ textAlign: 'left', color: 'black' }}>
         <p>Enjoy your playlist. Your Youtube, Your Way!</p>
         <Button variant="primary" onClick={handleClose}>
           Close
