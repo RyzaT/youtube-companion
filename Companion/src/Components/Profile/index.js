@@ -20,6 +20,7 @@ function Profile() {
 
   // required to control array update event and accordingly render playlists
   const [returnedLists, setLists] = useState([]);
+  const [showSavedLists, setShowSavedLists] = useState(false);
 
   function getTasks(arr) {
     if (localStorage.getItem("taskObject") === null) {
@@ -41,6 +42,7 @@ function Profile() {
         playLists.push(taskSaved[i].savedList)
         setLists([...returnedLists, taskSaved[i].savedList]);
       }
+      setShowSavedLists(true)
     }
     else {
       alert("No saved playlists")
@@ -63,18 +65,18 @@ function Profile() {
 
   return (
     <div>
-      <p style={{color: "black", fontWeight: "bold"}}>Display saved items below <span><button onClick={getData} className="viewsavedButton"><FaUpload /></button></span></p> 
-      
-      <ul className="list-group list-group-flush">
-
-      </ul>
-      <div>
-        {listItems1}
-      </div>
-
-      
-     
-
+      <p style={{color: "black", fontWeight: "bold"}}>
+        Display saved items below 
+        <span>
+          <button onClick={getData} className="viewsavedButton"><FaUpload /></button>
+        </span>
+        {showSavedLists && (
+          <span>
+            <button onClick={() => setShowSavedLists(false)}>Hide saved items</button>
+            <div className="card-row">{listItems1}</div> {/* wrap list items in a div with class "card-row" */}
+          </span>
+        )}
+      </p> 
     </div>
   );
 }
