@@ -63,7 +63,7 @@ function Profile() {
 
   return (
     <div>
-      <p>Display saved items below <span><button onClick={getData} className="viewsavedButton"><FaUpload /></button></span></p> 
+      <p style={{color: "black", fontWeight: "bold"}}>Display saved items below <span><button onClick={getData} className="viewsavedButton"><FaUpload /></button></span></p> 
       
       <ul className="list-group list-group-flush">
 
