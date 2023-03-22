@@ -3,3 +3,8 @@
 .viewsavedButton{
 border-width: 0;
 }
+
+.hide-button {
+    border-bottom-right-radius: 12px;
+    border-top-right-radius: 12px;
+}

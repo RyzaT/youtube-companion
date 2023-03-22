@@ -72,7 +72,7 @@ function Profile() {
         </span>
         {showSavedLists && (
           <span>
-            <button onClick={() => setShowSavedLists(false)}>Hide saved items</button>
+            <button className="hide-button" onClick={() => setShowSavedLists(false)}>Hide saved items</button>
             <div className="card-row">{listItems1}</div> {/* wrap list items in a div with class "card-row" */}
           </span>
         )}
