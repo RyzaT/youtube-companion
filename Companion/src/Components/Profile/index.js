@@ -4,19 +4,10 @@ import ListCardStorage from '../Card_Storage'
 import { FaUpload } from 'react-icons/fa';
 import "./style.css";
 
-
-
-
-
+// playlists array
 let playLists = []
 
-
-
 function Profile() {
-
-/* if(playLists.length>0){
-  playLists.length=0
-} */
 
   // required to control array update event and accordingly render playlists
   const [returnedLists, setLists] = useState([]);
@@ -50,24 +41,13 @@ function Profile() {
     
   }
 
-
-
-
-
-
-
-
-
-
   // generates JSX 
   const listItems1 = playLists.map((number) =>
     <ListCardStorage listID={number}></ListCardStorage>);
 
   return (
     <div>
-      <p style={{color: "black", fontWeight: "bold"}}>
-        Display saved items below 
-        <span>
+      <p > Display saved items below  <span>
           <button onClick={getData} className="viewsavedButton"><FaUpload /></button>
         </span>
         {showSavedLists && (

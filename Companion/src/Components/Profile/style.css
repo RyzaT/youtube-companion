@@ -3,3 +3,8 @@
 .viewsavedButton{
 border-width: 0;
 }
+
+p {
+    color: black;
+    font-weight: bold;
+}

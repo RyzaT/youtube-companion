@@ -4,49 +4,36 @@ import React, { useState } from "react";
 import YouTube from 'react-youtube';
 // nmp package for getting data
 import axios from 'axios';
-
 import { FaSearch } from 'react-icons/fa';
 import { GiPerspectiveDiceSixFacesRandom } from 'react-icons/gi'
-
 import ListCard from '../Card_Playlist'
-
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup'
-
 import { apiKey } from '../../API/apiKey'
 import "./style.css";
 
-
-// potential playlists to be exported to Playlist component. Can be extracted from response.data.items[0].id.playlistId instead of videoID
-// or simply contain all video id and playlist ID and play
+// Empty array for playlist
 let playLists = []
-
-
-
 
 function Searchbar() {
 
   // manage video id from GET request
   const [videoID, setVideo] = useState("");
 
-
   // control input value
-  const [searchParam, setSearch] = useState({
-    keyword: "",
-
-  });
+  const [searchParam, setSearch] = useState({ keyword: "",  });
 
   // control visibility of youtube player - show only if user press trending button
   const [visibility, setVisible] = useState(false)
 
 
-  // embedded player options
+  // embedded player options  // https://developers.google.com/youtube/player_parameters
   const opts = {
     height: '240',
     width: '240',
     playerVars: {
-      // https://developers.google.com/youtube/player_parameters
+    
       autoplay: 0,
       loop: 0,
       listType:'playlist',
@@ -59,15 +46,11 @@ function Searchbar() {
   const handleSubmit = (e) => {
     // prevents the submit button from refreshing the page
     e.preventDefault();
-
-
   };
 
 
   // button click event
   function getUserDefinedVideo() {
-
-
     // first get request for a user defined playlist
     const apiCallString = 'https://youtube.googleapis.com/youtube/v3/search'
     axios.get(apiCallString, {
@@ -81,14 +64,10 @@ function Searchbar() {
     })
       .then(function (response) {
         // handle success
-        // console.log(response)
-        setVideo(response.data.items[0].id.playlistId)
-
+           setVideo(response.data.items[0].id.playlistId)
         playLists = []
         for (let i = 0; i < response.data.items.length; i++) {
-
           playLists.push(response.data.items[i].id.playlistId)
-
         }
       
       })
@@ -97,7 +76,7 @@ function Searchbar() {
         console.log(error);
       })
       .finally(function () {
-        // always executed
+      
       });
 
   }
@@ -105,7 +84,7 @@ function Searchbar() {
   // second get request for a random popular playlist
   function getRandomVideo() {
 
-    const maxVideosCount = 5
+    const maxVideosCount = 15;
 
     const apiCallString = 'https://youtube.googleapis.com/youtube/v3/search'
     axios.get(apiCallString, {
@@ -116,7 +95,6 @@ function Searchbar() {
         key: apiKey,
         order: 'Viewcount',
         maxResults: maxVideosCount
-
       }
     })
       .then(function (response) {
@@ -125,17 +103,14 @@ function Searchbar() {
         setVideo(response.data.items[randomVideoID].id.playlistId)
 // make player visible
         setVisible(true)
-
       })
       .catch(function (error) {
         // handle error
         console.log(error);
       })
       .finally(function () {
-        // always executed
+       
       });
-
-
 
   }
 // generate a list of playlists
@@ -143,7 +118,6 @@ function Searchbar() {
     <ListCard listID={number}></ListCard>
 
   );
-
 
   return (
     <div className="row">
@@ -161,7 +135,7 @@ function Searchbar() {
           <Button onClick={getUserDefinedVideo} variant="outline-secondary" className="searchButton">
             <FaSearch />
           </Button>
-          <Button onClick={getRandomVideo}>Get Trending List<GiPerspectiveDiceSixFacesRandom></GiPerspectiveDiceSixFacesRandom></Button>
+          <Button onClick={getRandomVideo}>Get Random  Trending  <GiPerspectiveDiceSixFacesRandom></GiPerspectiveDiceSixFacesRandom></Button>
         </InputGroup>
 
       </div>

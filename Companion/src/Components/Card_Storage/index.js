@@ -1,27 +1,22 @@
 import React from "react";
 import YouTube from 'react-youtube';
 import { useState } from 'react';
-import Searchbar from "../Searchbar";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import "./style.css";
 
-
-
-//let playLists =[]
 function ListCardStorage(props) {
-
   // control visibility
   const [clicked, setClicked] = useState(true);
    
 // required to control array update event and accordingly render playlists
 
-// embedded player options
+// embedded player options  // https://developers.google.com/youtube/player_parameters
 const opts = {
-  height: '180',
-  width: '180',
+  height: '240',
+  width: '240',
   playerVars: {
-    // https://developers.google.com/youtube/player_parameters
+   
     autoplay: 0,
     loop:0,
     listType:'playlist',
@@ -29,8 +24,6 @@ const opts = {
     
   },
 };
-
-
 
 function getTasks(arr) {
   if (localStorage.getItem("taskObject") === null) {

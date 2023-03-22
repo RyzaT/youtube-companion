@@ -1,23 +1,17 @@
 import React from "react";
 import YouTube from 'react-youtube';
-import { useState } from 'react';
-import Searchbar from "../Searchbar";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import "./style.css";
 
-
-
-
 function ListCard(props) {
 
-
-  // embedded player options
+  // embedded player options  // https://developers.google.com/youtube/player_parameters
   const opts = {
-    height: '180',
-    width: '180',
+    height: '240',
+    width: '240',
     playerVars: {
-      // https://developers.google.com/youtube/player_parameters
+     
       autoplay: 0,
       loop: 0,
       listType: 'playlist',
@@ -25,7 +19,6 @@ function ListCard(props) {
 
     },
   };
-
 
   function savePlaylist() {
 
@@ -56,18 +49,12 @@ function ListCard(props) {
     taskObject.push(userSave);
     // save to local storage
     localStorage.setItem("taskObject", JSON.stringify(taskObject));
-
     taskSaved = taskObject;
-
-
 
   }
 
   return (
-
     <Card className="cardPlaylist" style={{ width: '18rem' }}>
-
-
       <Card.Body >
       <YouTube opts={opts} />
         <Button onClick={savePlaylist} variant="primary"  >Save</Button>
