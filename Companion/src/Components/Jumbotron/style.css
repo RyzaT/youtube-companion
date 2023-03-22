@@ -60,36 +60,6 @@ h1:hover span {
   text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 40px #ff0000;
 }
 
-/* .footer {
-  min-height: 100px;
-  background: #e5e5e5;
-  position: relative;
-}
-
-.footer span {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 3px;
-  background: #b8b8b8;
-} */
-
-
-
-/* h1 {
-	font-size: 2em;
-	font-family: 'PT Sans Narrow', sans-serif;
-	font-weight: 700;
-	color: #F6F4F3;
-	letter-spacing: 1.4px;
-} */
-
-/* hr {
-	margin: 30px auto;
-	width: 50%;
-	text-align: center;
-} */
 
 button {
 	padding: 10px 20px;
@@ -114,39 +84,6 @@ div {
 	text-align: center;
 	color: #fff;
 }
-
-/* div:not(.hero) {
-	display: inline;
-	padding: 20px;
-	margin: 5px 20px;
-	-webkit-animation-name: color-transition;
-	animation-name: color-transition;
-	-webkit-animation-duration: 25s;
-	animation-duration: 25s;
-	-webkit-animation-direction: alternate;
-	animation-direction: alternate;
-	-webkit-animation-iteration-count: infinite;
-	animation-iteration-count: infinite;
-	-webkit-animation-timing-function: linear;
-	animation-timing-function: linear;
-} */
-
-/* .hero {
-	margin: 50px auto;
-	width: 50%;
-	height: 100px;
-	-webkit-animation-name: color-transition;
-	animation-name: color-transition;
-	-webkit-animation-duration: 25s;
-	animation-duration: 25s;
-	-webkit-animation-direction: alternate;
-	animation-direction: alternate;
-	-webkit-animation-iteration-count: infinite;
-	animation-iteration-count: infinite;
-	-webkit-animation-timing-function: linear;
-	animation-timing-function: linear;
-} */
-
 
 /*This is the animation used to change colors */
 
