@@ -4,32 +4,22 @@ import React, { useState } from "react";
 import YouTube from 'react-youtube';
 // nmp package for getting data
 import axios from 'axios';
-
 import { FaSearch } from 'react-icons/fa';
 import { GiPerspectiveDiceSixFacesRandom } from 'react-icons/gi'
-
 import ListCard from '../Card_Playlist'
-
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup'
-
 import { apiKey } from '../../API/apiKey'
 import "./style.css";
 
 
-// potential playlists to be exported to Playlist component. Can be extracted from response.data.items[0].id.playlistId instead of videoID
-// or simply contain all video id and playlist ID and play
 let playLists = []
-
-
-
 
 function Searchbar() {
 
   // manage video id from GET request
   const [videoID, setVideo] = useState("");
-
 
   // control input value
   const [searchParam, setSearch] = useState({
@@ -40,7 +30,6 @@ function Searchbar() {
   // control visibility of youtube player - show only if user press trending button
   const [visibility, setVisible] = useState(false)
 
-
   // embedded player options
   const opts = {
     height: '240',
@@ -49,7 +38,7 @@ function Searchbar() {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 0,
       loop: 0,
-      listType:'playlist',
+      listType: 'playlist',
       list: videoID
 
     },
@@ -60,13 +49,10 @@ function Searchbar() {
     // prevents the submit button from refreshing the page
     e.preventDefault();
 
-
   };
-
 
   // button click event
   function getUserDefinedVideo() {
-
 
     // first get request for a user defined playlist
     const apiCallString = 'https://youtube.googleapis.com/youtube/v3/search'
@@ -81,7 +67,6 @@ function Searchbar() {
     })
       .then(function (response) {
         // handle success
-        // console.log(response)
         setVideo(response.data.items[0].id.playlistId)
 
         playLists = []
@@ -90,7 +75,7 @@ function Searchbar() {
           playLists.push(response.data.items[i].id.playlistId)
 
         }
-      
+
       })
       .catch(function (error) {
         // handle error
@@ -123,7 +108,7 @@ function Searchbar() {
         // handle success
         let randomVideoID = Math.floor(Math.random() * maxVideosCount) - 1
         setVideo(response.data.items[randomVideoID].id.playlistId)
-// make player visible
+        // make player visible
         setVisible(true)
 
       })
@@ -136,9 +121,8 @@ function Searchbar() {
       });
 
 
-
   }
-// generate a list of playlists
+  // generate a list of playlists
   const listItems = playLists.map((number) =>
     <ListCard listID={number}></ListCard>
 
