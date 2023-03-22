@@ -11,6 +11,7 @@ import "./style.css";
 
 function ListCard(props) {
 
+  const [message, setMessage] = useState("")
 
   // embedded player options
   const opts = {
@@ -59,18 +60,23 @@ function ListCard(props) {
 
     taskSaved = taskObject;
 
+    setMessage("The song has been saved")
 
-
+    // set a timeout to clear the message after 2 seconds
+    setTimeout(() => {
+      setMessage("");
+    }, 1000);
   }
 
   return (
 
     <Card className="cardPlaylist" style={{ width: '18rem' }}>
-    
-     
+
+
       <Card.Body >
-      <YouTube opts={opts} />
+        <YouTube opts={opts} />
         <Button onClick={savePlaylist} variant="primary"  >Save</Button>
+        <div className="save-message">{message}</div> {/* display the state in a separate div */}
       </Card.Body>
     </Card>
   );
