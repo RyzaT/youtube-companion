@@ -1,16 +1,18 @@
 {
-  "files": {
-    "main.css": "/youtube-companion/static/css/main.a1a66a06.css",
-    "main.js": "/youtube-companion/static/js/main.3cc4f90f.js",
-    "static/js/787.163e12ed.chunk.js": "/youtube-companion/static/js/787.163e12ed.chunk.js",
-    "static/media/Logo.png": "/youtube-companion/static/media/Logo.4504d71f9d363b16eeec.png",
-    "index.html": "/youtube-companion/index.html",
-    "main.a1a66a06.css.map": "/youtube-companion/static/css/main.a1a66a06.css.map",
-    "main.3cc4f90f.js.map": "/youtube-companion/static/js/main.3cc4f90f.js.map",
-    "787.163e12ed.chunk.js.map": "/youtube-companion/static/js/787.163e12ed.chunk.js.map"
-  },
-  "entrypoints": [
-    "static/css/main.a1a66a06.css",
-    "static/js/main.3cc4f90f.js"
-  ]
+  "main.css": "/youtube-companion/static/css/main.b2913050.chunk.css",
+  "main.js": "/youtube-companion/static/js/main.43c798cd.chunk.js",
+  "main.js.map": "/youtube-companion/static/js/main.43c798cd.chunk.js.map",
+  "runtime~main.js": "/youtube-companion/static/js/runtime~main.7c979c22.js",
+  "runtime~main.js.map": "/youtube-companion/static/js/runtime~main.7c979c22.js.map",
+  "static/css/2.98f0d91b.chunk.css": "/youtube-companion/static/css/2.98f0d91b.chunk.css",
+  "static/js/2.61edafdc.chunk.js": "/youtube-companion/static/js/2.61edafdc.chunk.js",
+  "static/js/2.61edafdc.chunk.js.map": "/youtube-companion/static/js/2.61edafdc.chunk.js.map",
+  "static/js/3.984a5bf2.chunk.js": "/youtube-companion/static/js/3.984a5bf2.chunk.js",
+  "static/js/3.984a5bf2.chunk.js.map": "/youtube-companion/static/js/3.984a5bf2.chunk.js.map",
+  "index.html": "/youtube-companion/index.html",
+  "precache-manifest.c40047a1fde5a798039a45dc4b02f400.js": "/youtube-companion/precache-manifest.c40047a1fde5a798039a45dc4b02f400.js",
+  "service-worker.js": "/youtube-companion/service-worker.js",
+  "static/css/2.98f0d91b.chunk.css.map": "/youtube-companion/static/css/2.98f0d91b.chunk.css.map",
+  "static/css/main.b2913050.chunk.css.map": "/youtube-companion/static/css/main.b2913050.chunk.css.map",
+  "static/media/Logo.png": "/youtube-companion/static/media/Logo.63a3f51a.png"
 }
