@@ -65,10 +65,10 @@ function Profile() {
 
   return (
     <div>
-      <p style={{color: "black", fontWeight: "bold"}}>
+      <p style={{color: "black", fontWeight: "bold", textDecoration: "underline"}}>
         Display saved items below 
         <span>
-          <button onClick={getData} className="viewsavedButton"><FaUpload /></button>
+          <button onClick={getData} className="viewsavedButton" style={{marginLeft:"7px"}}><FaUpload /></button>
         </span>
         {showSavedLists && (
           <span>
