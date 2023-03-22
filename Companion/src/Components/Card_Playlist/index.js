@@ -59,10 +59,13 @@ function ListCard(props) {
     localStorage.setItem("taskObject", JSON.stringify(taskObject));
 
     taskSaved = taskObject;
- 
+
     setMessage("The song has been saved")
 
-
+    // set a timeout to clear the message after 2 seconds
+    setTimeout(() => {
+      setMessage("");
+    }, 1000);
   }
 
   return (
@@ -71,7 +74,7 @@ function ListCard(props) {
 
 
       <Card.Body >
-      <YouTube opts={opts} />
+        <YouTube opts={opts} />
         <Button onClick={savePlaylist} variant="primary"  >Save</Button>
         <div>{message}</div> {/* display the state in a separate div */}
       </Card.Body>
