@@ -18,8 +18,9 @@
 This was a colaborative project for a bootcamp to produce a client-side single page application
 
 ## Screenshot
-![alt - text] <img src=()/>
-
+![Alt text](Companion/public/Images/companion-landing.png?raw=true) "Landing Page"
+![Alt text](Companion/public/Images/companion-trending.png?raw=true) "Trending Page"
+![Alt text](Companion/public/Images/companion-playlist.png?raw=true) "Playlist Page"
 ## Requirements
 Sass, React, React-Bootstrap, Axios, React-YouTube, React-Scripts
 
