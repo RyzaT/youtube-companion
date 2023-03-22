@@ -1,12 +1,9 @@
 import React from "react";
 import YouTube from 'react-youtube';
 import { useState } from 'react';
-import Searchbar from "../Searchbar";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import "./style.css";
-
-
 
 
 function ListCard(props) {
@@ -15,8 +12,8 @@ function ListCard(props) {
 
   // embedded player options
   const opts = {
-    height: '180',
-    width: '180',
+    height: '240',
+    width: '240',
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 0,
@@ -71,8 +68,6 @@ function ListCard(props) {
   return (
 
     <Card className="cardPlaylist" style={{ width: '18rem' }}>
-
-
       <Card.Body >
         <YouTube opts={opts} />
         <Button onClick={savePlaylist} variant="primary"  >Save</Button>

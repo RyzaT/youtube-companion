@@ -8,7 +8,6 @@ import "./style.css";
 
 
 
-//let playLists =[]
 function ListCardStorage(props) {
 
   // control visibility
@@ -18,8 +17,8 @@ function ListCardStorage(props) {
 
 // embedded player options
 const opts = {
-  height: '180',
-  width: '180',
+  height: '240',
+  width: '240',
   playerVars: {
     // https://developers.google.com/youtube/player_parameters
     autoplay: 0,
@@ -30,8 +29,6 @@ const opts = {
   },
 };
 
-
-
 function getTasks(arr) {
   if (localStorage.getItem("taskObject") === null) {
     arr = [];
@@ -41,18 +38,13 @@ function getTasks(arr) {
   return arr;
 }
 
-
 const removeItem = () => {
 
   setClicked(false);
   // new array for values from a local storage
   let taskSaved = [];
   taskSaved = getTasks(taskSaved);
- // playLists=JSON.stringify(taskSaved)
- //alert(taskSaved[0].profile)
   for(let i=0; i < taskSaved.length; i++) {
-   // alert(i)
-   // alert(taskSaved[i].profile)
     if(taskSaved[i].profile === "default" && taskSaved[i].savedList === props.listID)
     {
       taskSaved.splice(i,1);

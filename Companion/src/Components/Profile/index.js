@@ -5,19 +5,9 @@ import { FaUpload } from 'react-icons/fa';
 import "./style.css";
 
 
-
-
-
 let playLists = []
 
-
-
 function Profile() {
-
-/* if(playLists.length>0){
-  playLists.length=0
-} */
-
   // required to control array update event and accordingly render playlists
   const [returnedLists, setLists] = useState([]);
   const [showSavedLists, setShowSavedLists] = useState(false);
@@ -49,16 +39,6 @@ function Profile() {
     }
     
   }
-
-
-
-
-
-
-
-
-
-
   // generates JSX 
   const listItems1 = playLists.map((number) =>
     <ListCardStorage listID={number}></ListCardStorage>);
