@@ -76,7 +76,7 @@ function ListCard(props) {
       <Card.Body >
         <YouTube opts={opts} />
         <Button onClick={savePlaylist} variant="primary"  >Save</Button>
-        <div>{message}</div> {/* display the state in a separate div */}
+        <div className="save-message">{message}</div> {/* display the state in a separate div */}
       </Card.Body>
     </Card>
   );

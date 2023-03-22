@@ -22,6 +22,11 @@
   border-style: 5px auto;
 }
 
+.save-message {
+  color: black;
+  font-weight: bold;
+}
+
 
 @media (min-width: 100px) {
   .card {
