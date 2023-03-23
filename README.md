@@ -19,7 +19,7 @@ This was a colaborative project for a bootcamp to produce a client-side single p
 ![Alt text](Companion/public/Images/companion-trending.png?raw=true) "Trending Page"
 ![Alt text](Companion/public/Images/companion-playlist.png?raw=true) "Playlist Page"
 ## Requirements
-Sass, React, React-Bootstrap, Axios, React-YouTube, React-Scripts
+Sass, React, React-Bootstrap, Axios, React-YouTube, React-Scripts, YouTube V3 NPM
 
 ## Usage
 This project utilises React, JavaScript, CSS, HTML, JSON, Ajax and Bootstrap.
@@ -28,13 +28,13 @@ This project utilises React, JavaScript, CSS, HTML, JSON, Ajax and Bootstrap.
 * Name - Ryan Taylor,
 * Email - ryant.webdev@gmail.com
 * GitHub  - https://github.com/RyzaT
-          - https://github.com/JayClay922
-          - https://github.com/KonstantinGolovahin
+          
           
 
 ## Contributors
-Konstantin Golovahin  - https://github.com/KonstantinGolovahin
-James Clayman         - https://github.com/JayClay922
+* Konstantin Golovahin  - https://github.com/KonstantinGolovahin
+* James Clayman         - https://github.com/JayClay922
+* Ryan Taylor           - https://github.com/RyzaT
 
 ## Testing
 N/A
