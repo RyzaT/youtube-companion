@@ -1,15 +1,12 @@
 ## YouTube Companion
 
-  undefined
-  
-## This is a web-based application where you can personalise and search for YouTube playlists.
-
+This is a web-based application where you can personalise and search for YouTube playlists.
 
 ## Table Of Contents
   * [Description](#description)
   * [Requirements](#require)
   * [Usage](#usage)
-  * [Contact](#contact - me)
+  * [Contact](#contact)
   * [Contributers](#contributors)
   * [Testing](#test)
 
